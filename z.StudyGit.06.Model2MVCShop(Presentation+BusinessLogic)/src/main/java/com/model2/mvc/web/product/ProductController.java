@@ -85,7 +85,7 @@ public class ProductController {
 				}
 			}
 		}
-		str += prodNo+",";
+		//str += prodNo+",";
 		
 		Cookie cookie = new Cookie("history", str);
 		
@@ -100,13 +100,13 @@ public class ProductController {
 
 		System.out.println("/updateProductView.do");
 		//Business Logic
-		Product product = productService.getProduct(Integer.parseInt(prodNo));
+		Product productVO = productService.getProduct(Integer.parseInt(prodNo));
 		
 		PurchaseService purchaseService = new PurchaseServiceImpl();
-		Purchase purchase = purchaseService.getPurchase2(Integer.parseInt(prodNo));
+		Purchase purchaseVO = purchaseService.getPurchase2(Integer.parseInt(prodNo));
 		// Model °ú View ¿¬°á
-		model.addAttribute("productVO", product);
-		model.addAttribute("purchaseVO", purchase);
+		model.addAttribute("productVO", productVO);
+		model.addAttribute("purchaseVO", purchaseVO);
 		
 		return "forward:/product/updateProductView.jsp";
 	}
