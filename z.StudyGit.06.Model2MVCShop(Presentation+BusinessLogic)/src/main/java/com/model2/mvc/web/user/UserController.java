@@ -45,7 +45,7 @@ public class UserController {
 	int pageSize;
 	
 	
-	@RequestMapping("/addUserView.do")
+	//@RequestMapping("/addUserView.do")
 	public String addUserView() throws Exception {
 
 		System.out.println("/addUserView.do");
@@ -115,10 +115,10 @@ public class UserController {
 		
 		System.out.println("/login.do");
 		//Business Logic
-		User dbUser=userService.getUser(user.getUserId());
+		User dbVO=userService.getUser(user.getUserId());
 		
-		if( user.getPassword().equals(dbUser.getPassword())){
-			session.setAttribute("user", dbUser);
+		if( user.getPassword().equals(dbVO.getPassword())){
+			session.setAttribute("user", dbVO);
 		}
 		
 		return "redirect:/index.jsp";
@@ -156,18 +156,15 @@ public class UserController {
 			search.setCurrentPage(1);
 		}
 		search.setPageSize(pageSize);
-		
 		// Business logic 수행
 		Map<String , Object> map=userService.getUserList(search);
 		
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
-		
 		// Model 과 View 연결
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
-		
 		return "forward:/user/listUser.jsp";
 	}
 }

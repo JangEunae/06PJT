@@ -7,6 +7,7 @@ public class Search {
 	///Field
 	private int currentPage;
 	private String searchCondition;
+	private String searchOption;
 	private String searchKeyword;
 	private int pageSize;
 	//==> 리스트화면 currentPage에 해당하는 회원정보를 ROWNUM 사용 SELECT 위해 추가된 Field 
@@ -48,7 +49,15 @@ public class Search {
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
-	
+	public String getSearchOption() {
+		System.out.println("get서치 자바::::"+searchOption);
+		return searchOption;
+	}
+
+	public void setSearchOption(String searchOption) {
+		System.out.println("set서치 자바::::"+searchOption);
+		this.searchOption = searchOption;
+	}
 	//==> Select Query 시 ROWNUM 마지막 값 
 	public int getEndRowNum() {
 		return getCurrentPage()*getPageSize();
@@ -62,7 +71,7 @@ public class Search {
 	public String toString() {
 		return "Search [currentPage=" + currentPage + ", searchCondition="
 				+ searchCondition + ", searchKeyword=" + searchKeyword
-				+ ", pageSize=" + pageSize + ", endRowNum=" + endRowNum
-				+ ", startRowNum=" + startRowNum + "]";
+				+ ", pageSize=" + pageSize +",searchOption="+searchOption+ ", endRowNum=" + endRowNum
+				+ ", startRowNum=" + startRowNum +"]";
 	}
 }
