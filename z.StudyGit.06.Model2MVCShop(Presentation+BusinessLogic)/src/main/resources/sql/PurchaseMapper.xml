@@ -33,7 +33,7 @@
 		select * from TRANSACTION t, USERS u where TRAN_NO = #{tranNo} and t.BUYER_ID = u.USER_ID
 	 </select>
 	 
-	 <select 	id="getPurchase02"	parameterType="int"	resultMap="purchaseSelectMap">
+	 <select 	id="getPurchase02"	parameterType="string"	resultMap="purchaseSelectMap">
 		select * from TRANSACTION t, USERS u where PROD_NO = #{value} and t.BUYER_ID = u.USER_ID
 	 </select>
 	 
@@ -42,10 +42,10 @@
 	   	UPDATE TRANSACTION
 	   	<set>
 	   		<if test="tranCode== '0  '">
-	   			TRAN_STATUS_CODE = '1  '
+	   			TRAN_STATUS_CODE = '1'
 	   		</if>
 	   		<if test="tranCode== '1  '">
-	   			TRAN_STATUS_CODE = '2  '
+	   			TRAN_STATUS_CODE = '2'
 	   		</if>
 	   		<if test="tranCode== '2  '">
 	   			TRAN_STATUS_CODE = '3  '

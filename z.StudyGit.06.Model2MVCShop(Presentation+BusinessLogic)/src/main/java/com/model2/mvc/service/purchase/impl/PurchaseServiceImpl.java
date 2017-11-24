@@ -61,7 +61,8 @@ public class PurchaseServiceImpl implements PurchaseService{
 	}
 
 	
-	public void updatePurcahse(Purchase purchase) throws Exception {
+	public void updatePurchase(Purchase purchase) throws Exception {
+		System.out.println("¼­ºñ½º?"+purchase);
 		purchaseDAO.updatePurchase(purchase);
 	}
 

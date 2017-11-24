@@ -49,7 +49,7 @@
 	  					FROM		(	select p.*, t.TRAN_STATUS_CODE from PRODUCT p, transaction t WHERE p.prod_no=t.prod_no(+)
 											<if test="search.searchCondition != null">
 													<if test="search.searchCondition == 0 and search.searchKeyword !='' ">
-										 				
+															ORDER BY p.prod_no
 													</if>
 													<if test="search.searchCondition == 1 and search.searchKeyword !='' ">
 										 				and p.PROD_NAME Like '%${search.searchKeyword}%'
@@ -63,7 +63,7 @@
 										 				</if>
 													</if>
 											</if>
-											<if test="search.searchOption != null">
+											<if test="search.searchOption != '' and search.searchOption != null">
 												<if test="search.searchOption == 0">
 												order by p.PRICE DESC
 												</if>
@@ -71,7 +71,10 @@
 												order by p.PRICE ASC
 												</if>
 											</if>
-											<if test="search.searchOption == null ">
+											<if test="search.searchKeyword == '' and search.searchOption == '' ">
+											ORDER BY p.prod_no
+											</if>
+											<if test="search.searchKeyword == null and search.searchOption == null ">
 											ORDER BY p.prod_no
 											</if>
 											 ) inner_table WHERE ROWNUM <![CDATA[<=]]> #{search.currentPage}*#{search.pageSize} )

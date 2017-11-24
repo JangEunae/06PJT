@@ -67,7 +67,6 @@ public class ProductDaoImpl implements ProductDAO{
 		map.put("singlePrice", singlePrice);
 		map.put("doublePrice", doublePrice);
 		
-		System.out.println("´Ù¿À "+search);
 		return sqlSession.selectList("ProductMapper.getProductList", map);
 	}
 

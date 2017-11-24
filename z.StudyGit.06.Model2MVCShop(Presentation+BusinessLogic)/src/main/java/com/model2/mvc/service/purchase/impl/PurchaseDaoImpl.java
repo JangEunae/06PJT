@@ -60,6 +60,7 @@ public class PurchaseDaoImpl implements PurchaseDAO{
 
 	@Override
 	public void updatePurchase(Purchase purchase) throws Exception {
+		System.out.println("´Ù¿À?"+purchase);
 		sqlSession.update("PurchaseMapper.updatePurchase", purchase);
 	}
 
