@@ -230,11 +230,11 @@ function fncGetList(currentPage) {
 			<td align="center">${ i }</td>
 			<td></td>
 				<c:if test = "${param.menu=='manage'}">					
-				<td align="left"><a href="/updateProductView.do?prodNo=${product.prodNo}">${product.prodName}</a></td>		
+				<td align="left"><a href="/updateProductView.do?prodNo=${product.prodNo}&menu=${param.menu}">${product.prodName}</a></td>		
 				</c:if>
 				<c:if test = "${param.menu=='search'}">
 					<c:if test = "${product.proTranCode==null}">
-				<td align="left"><a href="/getProduct.do?prodNo=${product.prodNo}">${product.prodName}</a></td>
+				<td align="left"><a href="/getProduct.do?prodNo=${product.prodNo}&menu=${param.menu}">${product.prodName}</a></td>
 				</c:if>
 				<c:if test = "${product.proTranCode=='0  '||product.proTranCode=='1  '||product.proTranCode=='2  '}">
 				<td align="left">${product.prodName}</td>

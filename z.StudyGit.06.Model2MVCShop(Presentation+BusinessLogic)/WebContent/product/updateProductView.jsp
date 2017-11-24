@@ -19,7 +19,7 @@
 </script>
 
 <script type="text/javascript">
-<!--
+
 function fncAddProduct(){
 	//Form 유효성 검증
  	var name = document.detailForm.prodName.value;
@@ -47,14 +47,13 @@ function fncAddProduct(){
 	document.detailForm.action='/updateProduct.do';
 	document.detailForm.submit();
 }
--->
+
 </script>
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
 
 <form name="detailForm" method="post">
-
 <input type="hidden" name="prodNo" value="${productVO.prodNo}"/>
 
 <table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">

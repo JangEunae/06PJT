@@ -107,12 +107,8 @@ public class ProductController {
 		//Business Logic
 		Product productVO = productService.getProduct(Integer.parseInt(prodNo));
 		
-		System.out.println("컨트롤111");
 		Purchase purchaseVO = purchaseService.getPurchase2(Integer.parseInt(prodNo));
 		// Model 과 View 연결
-		System.out.println("컨트롤");
-		System.out.println("product"+productVO);
-		System.out.println("purchase"+purchaseVO);
 		model.addAttribute("productVO", productVO);
 		model.addAttribute("purchaseVO", purchaseVO);
 		
@@ -129,7 +125,7 @@ public class ProductController {
 		
 		model.addAttribute("productVO", product);
 
-		return "forward:/getProduct.do?prodNo="+product.getProdNo();
+		return "forward:/getProduct.do?menu=manage";
 	}
 	
 	@RequestMapping("/listProduct.do")
