@@ -180,7 +180,7 @@ function fncGetList(currentPage) {
 		</td>
 		<td colspan="8" align="right">
 
-		<input type="hidden" name="searchOption" id="searchOption" >
+		<!--  <input type="hidden" name="searchOption" id="searchOption" >-->
 		<a href="/listProduct.do?menu=${param.menu}&searchOption=0&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}">높은 가격순▲ </a>
 		<a href="/listProduct.do?menu=${param.menu}&searchOption=1&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}">낮은 가격순▼ </a>
 		</td>

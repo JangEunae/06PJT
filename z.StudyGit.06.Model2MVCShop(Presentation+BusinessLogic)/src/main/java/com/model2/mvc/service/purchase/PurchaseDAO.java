@@ -23,7 +23,7 @@ public interface PurchaseDAO {
 	
 	public Purchase getPurchase(int tranNo) throws Exception;
 	
-	public Purchase getPurchase2(int ProdNo) throws Exception ;
+	public Purchase getPurchase2(int prodNo) throws Exception ;
 	
 	public List<Purchase> getPurchaseList(Search search, String buyerId) throws Exception;
 

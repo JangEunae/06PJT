@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.Product;
-import com.model2.mvc.service.domain.User;
 import com.model2.mvc.service.product.ProductDAO;
 
 @Repository("productDaoImpl")
@@ -74,6 +73,7 @@ public class ProductDaoImpl implements ProductDAO{
 
 	@Override
 	public void updateProduct(Product product) throws Exception {
+		
 		sqlSession.update("ProductMapper.updateProduct", product);
 	}
 

@@ -33,6 +33,11 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productServiceImpl")
 	private ProductService productService;
+	
+	@Autowired
+	@Qualifier("purchaseServiceImpl")
+	private PurchaseService purchaseService;
+	
 	//setter Method 구현 않음
 		
 	public ProductController(){
@@ -85,7 +90,7 @@ public class ProductController {
 				}
 			}
 		}
-		//str += prodNo+",";
+		str += prodNo+",";
 		
 		Cookie cookie = new Cookie("history", str);
 		
@@ -102,9 +107,12 @@ public class ProductController {
 		//Business Logic
 		Product productVO = productService.getProduct(Integer.parseInt(prodNo));
 		
-		PurchaseService purchaseService = new PurchaseServiceImpl();
+		System.out.println("컨트롤111");
 		Purchase purchaseVO = purchaseService.getPurchase2(Integer.parseInt(prodNo));
 		// Model 과 View 연결
+		System.out.println("컨트롤");
+		System.out.println("product"+productVO);
+		System.out.println("purchase"+purchaseVO);
 		model.addAttribute("productVO", productVO);
 		model.addAttribute("purchaseVO", purchaseVO);
 		
@@ -128,12 +136,10 @@ public class ProductController {
 	public String listProduct( @ModelAttribute("search") Search search, Model model , HttpServletRequest request) throws Exception{
 		
 		System.out.println("/listProduct.do");
-		System.out.println("컨트롤 "+search);
 		if(search.getCurrentPage() ==0 ){
 			search.setCurrentPage(1);
 		}
 		search.setPageSize(pageSize);
-		System.out.println("컨트롤2 "+search);
 		// Business logic 수행
 		Map<String , Object> map=productService.getProductList(search);
 		

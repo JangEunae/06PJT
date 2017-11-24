@@ -50,12 +50,10 @@ public class Search {
 		this.searchKeyword = searchKeyword;
 	}
 	public String getSearchOption() {
-		System.out.println("get서치 자바::::"+searchOption);
 		return searchOption;
 	}
 
 	public void setSearchOption(String searchOption) {
-		System.out.println("set서치 자바::::"+searchOption);
 		this.searchOption = searchOption;
 	}
 	//==> Select Query 시 ROWNUM 마지막 값 
